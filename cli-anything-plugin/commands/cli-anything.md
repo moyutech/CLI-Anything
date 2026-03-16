@@ -73,7 +73,7 @@ This command implements the complete cli-anything methodology to build a product
 - Extracts CLI metadata using `skill_generator.py`
 - Generates SKILL.md with YAML frontmatter and Markdown body
 - Includes command groups, examples, and agent-specific guidance
-- Outputs to `skills/<software>_SKILL.md` by default
+- Outputs to `skills/SKILL.md` by default
 - Makes the CLI discoverable and usable by AI agents
 
 ### Phase 7: PyPI Publishing and Installation

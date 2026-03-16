@@ -368,6 +368,18 @@ All CLIs organized under cli_anything.* namespace — conflict-free, pip-install
 </tr>
 </table>
 
+### 🤖 SKILL.md Generation
+
+Each generated CLI includes a `SKILL.md` file at `<software>/agent-harness/skills/SKILL.md` — a self-contained skill definition that enables AI agents to discover and use the CLI through Claude Code's skill system or other agent frameworks.
+
+**What SKILL.md provides:**
+- **YAML frontmatter** with name and description for agent skill discovery
+- **Command groups** with all available subcommands documented
+- **Usage examples** for common workflows
+- **Agent-specific guidance** for JSON output, error handling, and programmatic use
+
+SKILL.md files are auto-generated during Phase 6.5 of the pipeline using `skill_generator.py`, which extracts metadata directly from the CLI's Click decorators, setup.py, and README.
+
 ---
 
 ## 🎬 Demonstrations
@@ -744,7 +756,7 @@ We welcome contributions! CLI-Anything is designed to be extensible:
 - [ ] Community-contributed CLI harnesses for internal/custom software
 - [ ] Integration with additional agent frameworks beyond Claude Code
 - [ ] Support packaging APIs for closed-source software and web services into CLIs
-- [ ] Produce SKILL.md alongside the CLI for agent skill discovery and orchestration
+- [x] Produce SKILL.md alongside the CLI for agent skill discovery and orchestration
 
 ---
 

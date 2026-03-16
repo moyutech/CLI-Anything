@@ -481,7 +481,7 @@ def generate_skill_file(harness_path: str, output_path: Optional[str] = None,
     if output_path is None:
         # Default to skills/ directory under harness_path
         harness_path_obj = Path(harness_path)
-        output_path = harness_path_obj / "skills" / f"{metadata.software_name}_SKILL.md"
+        output_path = harness_path_obj / "skills" / "SKILL.md"
     else:
         output_path = Path(output_path)
 
@@ -507,7 +507,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "-o", "--output",
-        help="Output path for SKILL.md (default: skills/<software>_SKILL.md)",
+        help="Output path for SKILL.md (default: skills/SKILL.md)",
         default=None
     )
     parser.add_argument(

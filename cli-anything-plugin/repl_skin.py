@@ -6,7 +6,7 @@ Copy this file into your CLI package at:
 Usage:
     from cli_anything.<software>.utils.repl_skin import ReplSkin
 
-    skin = ReplSkin("shotcut", version="1.0.0", skill_path="skills/shotcut_SKILL.md")
+    skin = ReplSkin("shotcut", version="1.0.0", skill_path="skills/SKILL.md")
     skin.print_banner()
     prompt_text = skin.prompt(project_name="my_video.mlt", modified=True)
     skin.success("Project saved")
