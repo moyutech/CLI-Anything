@@ -70,8 +70,8 @@ def is_available() -> tuple[bool, str]:
     if not _check_npx_has_domshell():
         return (
             False,
-            "DOMShell not found. Install with: npx @apireno/domshell --version\n"
-            "Note: First run may download the package (10-50 MB)."
+            "DOMShell not found. Run `npx @apireno/domshell --version` once\n"
+            "Note: The first run may download the package (10-50 MB)."
         )
 
     # Try to get version
@@ -136,7 +136,11 @@ async def _call_tool(
             f"Chrome Web Store: https://chromewebstore.google.com/detail/domshell"
         ) from e
 
-
+# NOTE: Known limitation - Daemon mode uses asyncio.run() per tool call (in sync wrappers).
+# Each asyncio.run() creates a new event loop. Async IO objects created in one loop
+# (like the daemon session) may have issues when accessed from subsequent calls that
+# create new loops. This is a documented limitation for v1; future work should use
+# a single long-lived event loop (e.g., background thread + run_coroutine_threadsafe).
 async def _start_daemon() -> bool:
     """Start persistent daemon mode.
 
