@@ -408,8 +408,9 @@ class TestErrorHandling:
         data = json.loads(result.output)
         assert "error" in data
 
+    @patch.dict("os.environ", {}, clear=True)
     def test_missing_api_key(self, runner):
-        result = runner.invoke(cli, ["server", "status"])
+        result = runner.invoke(cli, ["server", "status"], env={"OBSIDIAN_API_KEY": ""})
         assert result.exit_code == 1
 
     @patch("cli_anything.obsidian.core.vault.api_get")

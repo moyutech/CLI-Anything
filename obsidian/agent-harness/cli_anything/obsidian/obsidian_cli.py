@@ -122,8 +122,7 @@ def cli(ctx, use_json, host, api_key):
     """
     global _json_output, _host, _api_key
     _json_output = use_json
-    if host:
-        _host = host
+    _host = host if host else DEFAULT_BASE_URL
     _api_key = api_key or os.environ.get("OBSIDIAN_API_KEY", "")
 
     if ctx.invoked_subcommand is None:
